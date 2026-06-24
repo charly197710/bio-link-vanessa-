@@ -15,29 +15,38 @@
     body {
       font-family: 'Montserrat', sans-serif;
       min-height: 100vh;
-      background: linear-gradient(180deg, #6b21a8 0%, #c2410c 100%);
       display: flex;
       align-items: center;
       justify-content: center;
-      padding: 60px 40px;
+      padding: 5mm;
       position: relative;
       overflow-x: hidden;
     }
 
-    /* === CAPA MATE SEMITRANSPARENTE === */
+    /* === FONDO: Imagen de paleta de maquillaje === */
     body::before {
       content: '';
       position: fixed;
       inset: 0;
-      background: rgba(0, 0, 0, 0.45);
+      background: url('https://images.unsplash.com/photo-1596462502278-27bfdc403348?w=1920&q=80') center/cover no-repeat;
+      filter: brightness(0.75) blur(3px);
       z-index: 0;
+    }
+
+    /* === CAPA POLARIZADA OSCURA 80% === */
+    body::after {
+      content: '';
+      position: fixed;
+      inset: 0;
+      background: rgba(0, 0, 0, 0.8);
+      z-index: 1;
       pointer-events: none;
     }
 
     /* === CONTENEDOR PRINCIPAL === */
     .bio-container {
       position: relative;
-      z-index: 1;
+      z-index: 2;
       width: 100%;
       max-width: 380px;
       display: flex;
@@ -45,18 +54,7 @@
       align-items: center;
     }
 
-    /* === LOGO SUPERIOR (pequeño) === */
-    .bio-logo {
-      width: 60px;
-      height: 60px;
-      border-radius: 50%;
-      object-fit: cover;
-      margin-bottom: 16px;
-      opacity: 0;
-      animation: fadeScale 0.6s ease 0.05s forwards;
-    }
-
-    /* === FOTO DE PERFIL === */
+    /* === FOTO DE PERFIL (logo grande) === */
     .avatar-wrapper {
       width: 180px;
       height: 180px;
@@ -104,7 +102,7 @@
       text-align: center;
       margin-bottom: 8px;
       letter-spacing: -0.5px;
-      text-shadow: 0 2px 12px rgba(0,0,0,0.25);
+      text-shadow: 0 2px 12px rgba(0,0,0,0.4);
       opacity: 0;
       transform: translateY(16px);
       animation: fadeUp 0.6s ease 0.2s forwards;
@@ -118,7 +116,7 @@
       text-align: center;
       margin-bottom: 40px;
       letter-spacing: 0.3px;
-      text-shadow: 0 1px 6px rgba(0,0,0,0.2);
+      text-shadow: 0 1px 6px rgba(0,0,0,0.35);
       opacity: 0;
       transform: translateY(16px);
       animation: fadeUp 0.6s ease 0.32s forwards;
@@ -218,7 +216,6 @@
 
     /* === RESPONSIVE === */
     @media (max-width: 480px) {
-      body { padding: 40px 20px; }
       .bio-container { max-width: 100%; }
       .avatar-wrapper { width: 150px; height: 150px; }
       .bio-name { font-size: 28px; }
@@ -238,9 +235,6 @@
 <body>
 
   <main class="bio-container">
-
-    <!-- LOGO SUPERIOR -->
-    <img src="logo_small.png" alt="Vanessa Makeup Logo" class="bio-logo">
 
     <!-- FOTO DE PERFIL -->
     <div class="avatar-wrapper">
