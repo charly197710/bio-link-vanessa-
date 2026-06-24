@@ -33,18 +33,20 @@
       z-index: 0;
     }
 
-    /* === CAPA POLARIZADA OSCURA — reducida con luz en bordes === */
+    /* === CAPA POLARIZADA — desde mitad del logo hacia abajo === */
     .overlay {
       position: fixed;
-      top: 0;
+      top: 50%;
       left: 5mm;
       right: 5mm;
       bottom: 0;
       background: rgba(0, 0, 0, 0.8);
       z-index: 1;
       pointer-events: none;
-      border: 2px solid rgba(255, 255, 255, 0.08);
-      border-radius: 16px 16px 0 0;
+      border-left: 2px solid rgba(255, 255, 255, 0.08);
+      border-right: 2px solid rgba(255, 255, 255, 0.08);
+      border-bottom: 2px solid rgba(255, 255, 255, 0.08);
+      border-radius: 0 0 16px 16px;
       box-shadow: 
         inset 0 0 60px rgba(255,255,255,0.03),
         0 0 8px rgba(255,255,255,0.05);
